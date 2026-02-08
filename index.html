@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karis The Goat 🐐</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#ffffff;color:#333;line-height:1.6;scroll-behavior:smooth;}
+a{text-decoration:none;color:inherit}
+img{width:100%;display:block;border-radius:10px}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:1000;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 1.5rem;background:#fff8e1;
+  box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+nav.scrolled{background:#ffe082;}
+.logo{font-size:1.5rem;font-weight:600;color:#b8860b;}
+.logo div{font-size:0.75rem;font-weight:500;color:#8b7500;}
+nav ul{display:flex;gap:1.2rem;list-style:none;flex-wrap:wrap}
+nav a:hover{color:#d4af37}
+
+/* HERO */
+.hero{
+  min-height:90vh;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#fff8e1,#ffecb3);
+  padding:2rem 1rem;
+}
+.hero h1{font-size:2.7rem;color:#b8860b;}
+.hero p{margin:1rem 0 2rem;font-size:1.1rem;}
+.hero a{
+  background:#b8860b;color:#fff;
+  padding:.8rem 2rem;border-radius:5px;
+  font-weight:600;
+  transition:transform .2s;
+}
+.hero a:hover{background:#d4af37;transform:scale(1.05);}
+
+/* Carousel */
+.carousel-item img{height:250px;object-fit:cover;border-radius:15px}
+.carousel-caption{background:rgba(184,134,11,0.4);border-radius:10px;padding:10px}
+.carousel-caption h5, .carousel-caption p{color:#fff;font-size:0.95rem}
+
+.carousel-price{
+  margin-top:0.5rem;
+  font-weight:600;
+}
+.carousel-price a{
+  display:inline-block;
+  background:#b8860b;
+  color:#fff;
+  padding:.4rem .8rem;
+  border-radius:8px;
+  font-size:0.9rem;
+  font-weight:700;
+  margin:.2rem;
+  transition:.2s;
+}
+.carousel-price a:hover{background:#d4af37;transform:scale(1.1);}
+
+/* Quick order grid */
+#quick-order{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;padding:2rem;}
+#quick-order .product{border:1px solid #f0e68c;padding:1rem;border-radius:10px;background:#fffaf0;transition:.3s;}
+#quick-order .product:hover{transform:scale(1.03);box-shadow:0 10px 20px rgba(0,0,0,.15);}
+#quick-order .product img{height:200px;object-fit:cover;border-radius:10px;}
+#quick-order h3{color:#b8860b;margin:.5rem 0;font-size:1.1rem;}
+.price-btn{display:inline-block;margin:.2rem .1rem;background:#b8860b;color:#fff;padding:.5rem .8rem;border-radius:8px;font-weight:700;font-size:.95rem;transition:.2s}
+.price-btn:hover{background:#d4af37;transform:scale(1.1);}
+
+/* About & Contact */
+.about, .contact{padding:4rem 1rem;text-align:center;background:#fffaf0}
+.about h2, .contact h2{color:#b8860b;margin-bottom:1rem}
+.about p{max-width:700px;margin:auto}
+
+/* Price List */
+.price-list{
+  max-width:700px;margin:3rem auto;padding:2rem;
+  background:#fffaf0;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+.price-list h2{color:#b8860b;text-align:center;margin-bottom:1.5rem}
+.price-list ul{padding:0; list-style:none;}
+.price-list li{padding:.5rem 0;font-weight:600;color:#8b7500}
+
+/* Footer & WhatsApp float */
+footer{text-align:center;padding:2rem;background:#fff8e1;color:#333}
+.whatsapp-float{
+  position:fixed;bottom:20px;right:20px;
+  background:#25d366;color:#fff;
+  padding:1rem;border-radius:50%;
+  font-size:1.4rem;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+.whatsapp-float:hover{transform:scale(1.1);}
+
+/* Floating Profile */
+.profile-hover {
+  position:fixed;
+  bottom:90px;
+  left:20px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(184,134,11,.2);
+  animation:float 3s ease-in-out infinite;
+}
+.profile-hover img{width:100%;height:100%;object-fit:cover;}
+@keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+@media(max-width:768px){
+  .hero h1{font-size:2rem}
+  #quick-order{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="logo">
+    Karis The Goat 🐐
+    <div>We build. We ship. We win.</div>
+  </div>
+  <ul>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#quick-order">Quick Order</a></li>
+    <li><a href="#price-list">Prices</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Karis The Goat 🐐</h1>
+  <p>Streetwear, sneakers, jackets & hoodies for every drip 🐐🔥</p>
+  <a href="#products">Explore Products 🐐</a>
+</section>
+
+<!-- CAROUSEL -->
+<section class="products" id="products">
+<h2>Our Products</h2>
+<p style="text-align:center;color:#8b7500;font-weight:600;">
+Clothes, shoes & accessories • Pure drip • Straight fire 🐐🔥
+</p>
+
+<div id="deraCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner text-center">
+    <!-- First 3 placeholders; you can duplicate later for all -->
+    <div class="carousel-item active">
+      <img src="./shirt.jpg" alt="Stylish Shirt">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Stylish Shirt</h5>
+        <p>Premium fit, drip guaranteed</p>
+      </div>
+      <div class="carousel-price">
+        <a target="_blank" href="https://wa.me/254713147856?text=I%20want%20Stylish%20Shirt%20Ksh%20350">Ksh 350</a>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./hoodie.jpg" alt="Cozy Hoodie">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Cozy Hoodie</h5>
+        <p>Warm, stylish, street-ready</p>
+      </div>
+      <div class="carousel-price">
+        <a target="_blank" href="https://wa.me/254713147856?text=I%20want%20Cozy%20Hoodie%20Ksh%20500">Ksh 500</a>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./sneakers.jpg" alt="Fresh Sneakers">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Fresh Sneakers</h5>
+        <p>Step up your drip game</p>
+      </div>
+      <div class="carousel-price">
+        <a target="_blank" href="https://wa.me/254713147856?text=I%20want%20Fresh%20Sneakers%20Ksh%20750">Ksh 750</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#deraCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#deraCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </button>
+</div>
+</section>
+
+<!-- QUICK ORDER GRID -->
+<section id="quick-order">
+  <div class="product">
+    <img src="./shirt.jpg" alt="Stylish Shirt">
+    <h3>Stylish Shirt</h3>
+    <a class="price-btn" target="_blank" href="https://wa.me/254713147856?text=I%20want%20Stylish%20Shirt%20Ksh%20350">Ksh 350</a>
+  </div>
+  <div class="product">
+    <img src="./hoodie.jpg" alt="Cozy Hoodie">
+    <h3>Cozy Hoodie</h3>
+    <a class="price-btn" target="_blank" href="https://wa.me/254713147856?text=I%20want%20Cozy%20Hoodie%20Ksh%20500">Ksh 500</a>
+  </div>
+  <div class="product">
+    <img src="./sneakers.jpg" alt="Fresh Sneakers">
+    <h3>Fresh Sneakers</h3>
+    <a class="price-btn" target="_blank" href="https://wa.me/254713147856?text=I%20want%20Fresh%20Sneakers%20Ksh%20750">Ksh 750</a>
+  </div>
+  <div class="product">
+    <img src="./jacket.jpg" alt="Leather Jacket">
+    <h3>Leather Jacket</h3>
+    <a class="price-btn" target="_blank" href="https://wa.me/254713147856?text=I%20want%20Leather%20Jacket%20Ksh%201200">Ksh 1200</a>
+  </div>
+  <div class="product">
+    <img src="./boots.jpg" alt="Stylish Boots">
+    <h3>Stylish Boots</h3>
+    <a class="price-btn" target="_blank" href="https://wa.me/254713147856?text=I%20want%20Stylish%20Boots%20Ksh%20800">Ksh 800</a>
+  </div>
+  <div class="product">
+    <img src="./cap.jpg" alt="Cool Cap">
+    <h3>Cool Cap</h3>
+    <a class="price-btn" target="_blank" href="https://wa.me/254713147856?text=I%20want%20Cool%20Cap%20Ksh%20150">Ksh 150</a>
+  </div>
+  <div class="product">
+    <img src="./socks.jpg" alt="Fresh Socks">
+    <h3>Fresh Socks</h3>
+    <a class="price-btn" target="_blank" href="https://wa.me/254713147856?text=I%20want%20Fresh%20Socks%20Ksh%20100">Ksh 100</a>
+  </div>
+  <div class="product">
+    <img src="./hat.jpg" alt="Trendy Hat">
+    <h3>Trendy Hat</h3>
+    <a class="price-btn" target="_blank" href="https://wa.me/254713147856?text=I%20want%20Trendy%20Hat%20Ksh%20250">Ksh 250</a>
+  </div>
+  <div class="product">
+    <img src="./belt.jpg" alt="Stylish Belt">
+    <h3>Stylish Belt</h3>
+    <a class="price-btn" target="_blank" href="https://wa.me/254713147856?text=I%20want%20Stylish%20Belt%20Ksh%20300">Ksh 300</a>
+  </div>
+  <div class="product">
+    <img src="./backpack.jpg" alt="Cool Backpack">
+    <h3>Cool Backpack</h3>
+    <a class="price-btn" target="_blank" href="https://wa.me/254713147856?text=I%20want%20Cool%20Backpack%20Ksh%20500">Ksh 500</a>
+  </div>
+</section>
+
+<!-- PRICE LIST -->
+<div class="price-list" id="price-list">
+<h2>Full Price List</h2>
+<ul>
+<li>Stylish Shirt – KES 350</li>
+<li>Cozy Hoodie – KES 500</li>
+<li>Fresh Sneakers – KES 750</li>
+<li>Leather Jacket – KES 1200</li>
+<li>Stylish Boots – KES 800</li>
+<li>Cool Cap – KES 150</li>
+<li>Fresh Socks – KES 100</li>
+<li>Trendy Hat – KES 250</li>
+<li>Stylish Belt – KES 300</li>
+<li>Cool Backpack – KES 500</li>
+</ul>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<h2>About Us</h2>
+<p>Karis The Goat 🐐 brings you street-ready clothes, sneakers & accessories for every drip. Quality, drip, and confidence—straight from the Goat’s closet. 🐐🔥</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<h2>Let’s Talk Style 💬</h2>
+<a target="_blank" href="https://wa.me/254713147856">Chat on WhatsApp</a>
+</section>
+
+<footer>
+&copy; 2026 Karis The Goat 🐐 • Style That Speaks • We Build. We Ship. We Win. ✨
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="whatsapp-float" target="_blank" href="https://wa.me/254713147856">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- FLOATING PROFILE -->
+<div class="profile-hover">
+  <a target="_blank" href="https://wa.me/254713147856">
+    <img src="./profile.jpg" alt="Karis The Goat">
+  </a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)})
+</script>
+</body>
+</html>
